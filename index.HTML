@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politecnico Calasanz</title>
+    <style>
+   @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        scale: 100px;
+
+    }
+    50% {
+        transform: rotate(4deg);
+        scale: 200px;
+    }
+
+    75% {
+        transform: rotate(-4deg);
+        scale: 150px;
+    }
+
+    100% {
+        transform: rotate(0deg);
+        scale: 100px;
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    align-items: center;
+}
+
+header {
+    background-color: #003f87;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.logo {
+    max-width: 150px;
+    margin: 10px auto;
+    animation: scaleUp 0.8s ease-in-out;
+}
+
+.search-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: width 0.4s ease;
+    overflow: hidden;
+}
+
+.search-input {
+    width: 0;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    transition: width 0.4s ease;
+}
+
+.search-input:focus {
+    width: 200px;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #0056b3;
+}
+
+.navbar a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}
+
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 20px auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.video-container-group {
+    display: flex;
+    justify-content: center; /* Centra los videos horizontalmente */
+    flex-wrap: wrap; /* Permite que los videos se ajusten en varias filas si es necesario */
+    margin: 20px auto; /* Margen superior e inferior para separación */
+    background-color: #476f9e;
+}
+
+.video-container {
+    margin: 10px; /* Espacio entre los videos */
+    flex: 1 1 300px; /* Hace que cada video contenedor ocupe espacio flexible, mínimo 300px */
+    width: 300px; /* Limita el ancho máximo de cada video */
+   background-color: #FEE;
+}
+
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.section {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.study-section {
+    width: 100%;
+    background: #e7f0ff;
+    padding: 20px 0;
+    margin: 0;
+    text-align: center;
+}
+
+.study-section h2 {
+    color: #003f87;
+    animation: rotate 1s infinite alternate;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    
+    
+   
+}
+
+.icon-box {
+    text-align: center;
+    width: 150px;
+    margin: 10px;
+    animation: fadeIn 1s ease-in-out;
+    background-color: #e7f0ff;
+}
+
+.icon-box img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #e7f0ff;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+   
+}
+
+.input-container select, .input-container input {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+footer {
+    text-align:center;
+    padding: 15px;
+    background: #003f87;
+    color: white;
+    border-top: 2px solid #0056b3;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+.navigation {
+    margin-bottom: 50px;
+    position: fixed;
+    inset: 20px;
+    background: #67E;
+    width: 80px;
+    border-left: 10px solid #67E;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 15px 15px 25px rgba(0,0,0,0.05);
+    transition: 0.5s;
+}
+
+.navigation.active {
+    width: 300px;
+    border-radius: 20px;
+}
+
+.toggle {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 3px;
+    border-radius: 3px;
+    background: #99E;
+    transform: translateY(-5px);
+    transition: 1s;
+}
+
+.toggle::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 3px;
+    border-radius: 3px;
+    background: #99E;
+    transform: translateY(5px);
+    transition: 1s;
+}
+
+.navigation.active .toggle::before {
+    transform: translateY(6px) rotate(-405deg);
+}
+
+.navigation.active .toggle::after {
+    transform: translateY(6px) rotate(225deg);
+}
+
+.navigation ul {
+    top: 60px;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    /* background: #fff; */
+}
+
+.navigation ul li:hover {
+    background: #99E;
+}
+
+.navigation ul li:nth-child(1) {
+    top: 20px;
+    margin-bottom: 40px;
+    background: none;
+}
+
+.navigation ul li:not(:first-child):hover::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-bottom-right-radius: 20px;
+    box-shadow: 7.5px 7.5px 0 7.5px #99E;
+}
+
+.navigation ul li:not(:first-child):hover::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 7.5px -7.5px 0 7.5px #fff;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navigation ul li:hover:not(:first-child) a {
+    color: #FEE;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75em;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+
+.icon-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: #e7f0ff;
+    padding: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box {
+    text-align: center;
+    margin: 10px;
+    flex: 1 1 100px; /* Cada icono ocupa un mínimo de 100px */
+    transition: transform 0.3s;
+}
+
+.icon-box ion-icon {
+    font-size: 40px; /* Tamaño del ícono */
+    color: #003f87; /* Color del ícono */
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+.caja-container {
+    display: flex;
+    justify-content: center; /* Centra las cajas horizontalmente */
+    margin: 20px 0; /* Margen superior e inferior para separación */
+    
+}
+
+.caja {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 650px;
+    background-color: #fff; /* Fondo blanco para las cajas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.caja img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    max-width: 90px;
+}
+
+
+.NJ{
+margin-left: 300px;
+box-shadow:#000 ;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+justify-content: center;
+
+
+
+
+
+}
+
+
+
+.servicios{
+background-color: #eee;
+box-shadow: 4 5px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+max-width: 110px;
+max-height: 110px;
+margin-left: 565px;
+margin-top: 20px;
+margin-bottom: 20px;
+
+
+
+
+}
+
+
+
+.caja-container2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.caja {
+    border: 2px solid #000000;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    opacity: 0; /* Inicia oculto */
+    transform: translateY(20px); /* Desplazamiento hacia abajo */
+    animation: fadeInUp 0.5s forwards; /* Animación de entrada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+
+
+
+.caja img {
+    max-width: 100%;
+    border-radius: 5px;
+
+}
+
+.caja p {
+    margin-top: 10px;
+}
+
+/* Efecto hover */
+.caja:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+
+
+
+.floating-icon {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la derecha */
+    width: 60px; /* Ancho del ícono */
+    height: 60px; /* Alto del ícono */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+    margin-bottom: 50px;
+    animation: TITULO 3s linear infinite;
+}
+
+
+@keyframes TITILO {
+
+25%{
+scale: (0.9);
+}
+
+50%{
+    scale: (1.2);
+}
+
+75%{
+scale: (1.4);
+}
+
+
+100%{
+    scale: (0.9);
+}
+
+
+}
+
+
+
+
+.floating-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Hacer el ícono circular */
+}
+
+/* Efecto hover */
+.floating-icon:hover {
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+
+.alerta{
+color: rgb(213, 33, 33);
+
+}
+
+
+
+
+.icon-strip {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.icon-box {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+}
+
+.icon-box img {
+    width: 100px; /* Ajusta según sea necesario */
+    height: auto;
+}
+
+
+.icon-caja {
+    display: flex;
+    justify-content: space-around;
+    background-color: #476f9e;
+}
+
+.icon-box {
+    border: 1px solid #000;
+    padding: 20px;
+    text-align: center;
+    flex: 1; /* Permite que las cajas se alineen de forma equitativa */
+    margin: 10px; /* Espacio entre las cajas */
+}
+
+
+
+
+
+.tecnico {
+    display: none; /* Oculta las cajas inicialmente */
+    justify-content: space-around;
+    
+}
+
+.cajat {
+    margin-left: 435px;      /* Alinea el contenedor hacia la derecha (margen izquierdo) */
+    border: 1px solid #ccc;  /* Borde alrededor del contenedor */
+    padding: 10px;           /* Espaciado interno (padding) dentro del contenedor */
+    text-align: center;      /* Centra el texto dentro de cada elemento */
+    flex: 1;                 /* Los elementos dentro de .cajat ocuparán el mismo espacio */
+    width: 265px;            /* Ancho específico de 265px para el contenedor */
+    display: flex;           /* Establece un layout Flexbox en el contenedor */
+    align-items: center;     /* Centra los elementos hijos verticalmente */
+    margin: 10px; 
+    justify-content: space-around;           /* Espaciado entre los contenedores .cajat */
+}
+
+.cajat:hover{
+    transform: scale(1.1);
+
+}
+
+
+
+input-container {
+    margin-bottom: 20px;
+}
+
+.alerta {
+    color: red;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+       
+
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo Politecnico Calasanz" class="logo">
+    <h1>Politecnico Calasanz</h1>
+    <p>Información actualizada de las incidencias del colegio en cada momento</p>
+    
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar...">
+    </div>
+</header>
+
+
+
+<div class="content">
+    <div class="carousel">
+        <img src="COLOGIO1.jpeg" class="active" alt="Imagen 1">
+        <img src="COLEGIO2.jpeg" alt="Imagen 2">
+        <img src="COLEGIO3.jpeg" alt="Imagen 3">
+        <div class="carousel-controls">
+            <button class="carousel-button" id="prevBtn">&#10094;</button>
+            <button class="carousel-button" id="nextBtn">&#10095;</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="video-container-group">
+    <div class="video-container">
+        <video width="100%" controls>
+            <source src="VIDEOC.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>
+    <div class="video-container">
+        <video width="100%" controls>
+            <source src="VIDEOC.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>
+    <div class="video-container">
+        <video width="100%" controls>
+            <source src="VIDEOC.mp4" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>
+</div>
+
+
+   
+
+
+    
+
+    <div class="button-container">
+        <input type="button" class="button" value="Requisitos">
+        <input type="button" class="button" value="Solicitud de admisión">
+    </div>
+
+    <div class="study-section">
+        <h2>Estudia con nosotros</h2>
+        <p>¡Únete a nuestra comunidad educativa y descubre un mundo de oportunidades!</p>
+        <p>Ofrecemos programas académicos de alta calidad enfocados en el desarrollo integral de nuestros estudiantes.</p>
+
+        <div class="icon-container">
+            <div class="icon-box">
+                <img src="ICONO1.png" alt="Icono 1">
+                <p>Programas Académicos</p>
+            </div>
+            <div class="icon-box">
+                <img src="ICONO2.png" alt="Icono 2">
+                <p>Actividades Extracurriculares</p>
+            </div>
+            <div class="icon-box">
+                <img src="ICONO3.png" alt="Icono 3">
+                <p>Orientación Profesional</p>
+            </div>
+
+        </div>
+
+    <div class="section" id="mission">
+        <h2>Sobre nosotros</h2>
+        <p>En el colegio Calasanz estamos emocionados de que forme parte de nuestra familia. Nuestra filosofía se basa en nuestro patronato San José de Calasanz, donde educamos bajo el lema piedad y letra... 
+            Leer más...</p>
+    </div>
+</div>
+
+
+<div class="input-container">
+    <select id="firstSelect" onchange="handleFirstSelect()">
+        <option value="matematicas">Liceo técnico Calasanz</option>
+        <option value="politecnico">Politécnico</option>
+    </select>
+    <div class="alerta" style="display:none;">(Alerta, si elige esta opción no puede elegir técnico)</div>
+</div>
+
+<div class="tecnico">
+    <div class="cajat">
+        <img src="enfermeriaa.png" alt="Imagen 1">
+        <p contenteditable="true">Enfermeria</p>
+    </div>
+    <div class="cajat">
+        <img src="informatica.png" alt="Imagen 2">
+        <p contenteditable="true">Informatica</p>
+    </div>
+    <div class="cajat">
+        <img src="turismo.png" alt="Imagen 3">
+        <p contenteditable="true">Turismo</p>
+    </div>
+    <div class="cajat">
+        <img src="comunicacion.png" alt="Imagen 4">
+        <p contenteditable="true">Comunicación</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="navigation">
+    <ul>
+        <li>
+            <a href="#">
+                <span class="icon"><img src="LOGO.png" alt="mi logo" width="25" height="30"></ion-icon></span>
+                <span class="title">Politecnico Calasanz</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="title">Inicio</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                <span class="title">Contactos</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                <span class="title">Mensajes</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                <span class="title">Sobre nosotros</span>
+            </a>
+        </li>
+
+        
+        
+       
+        <li>
+            <a href="#">
+                <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                <span class="title">Salir</span>
+            </a>
+        </li>
+    </ul>
+    <div class="toggle"></div>
+</div>
+
+
+<div class="icon-strip">
+    <div class="icon-box" id="educationIcon"><ion-icon name="school-outline"></ion-icon><p>Educación</p></div>
+    <div class="icon-box" id="libraryIcon"><ion-icon name="library-outline"></ion-icon><p>Biblioteca</p></div>
+    <div class="icon-box" id="sportsIcon"><ion-icon name="sports-outline"></ion-icon><p>Deportes</p></div>
+    <div class="icon-box" id="healthIcon"><ion-icon name="heart-outline"></ion-icon><p>Salud</p></div>
+    <div class="icon-box" id="musicIcon"><ion-icon name="musical-notes-outline"></ion-icon><p>Música</p></div>
+    <div class="icon-box" id="communicationIcon"><ion-icon name="chatbubble-outline"></ion-icon><p>Comunicación</p></div>
+    <div class="icon-box" id="workIcon"><ion-icon name="briefcase-outline"></ion-icon><p>Trabajo</p></div>
+    <div class="icon-box" id="techIcon"><ion-icon name="code-slash-outline"></ion-icon><p>Tecnología</p></div>
+    <div class="icon-box" id="ecologyIcon"><ion-icon name="planet-outline"></ion-icon><p>Ecología</p></div>
+    <div class="icon-box" id="artIcon"><ion-icon name="brush-outline"></ion-icon><p>Arte</p></div>
+    <div class="icon-box" id="awardsIcon"><ion-icon name="star-outline"></ion-icon><p>Premios</p></div>
+    <div class="icon-box" id="communityIcon"><ion-icon name="people-outline"></ion-icon><p>Comunidad</p></div>
+</div>
+
+
+
+
+
+
+
+
+
+<CENTER><H2>TESTIMONIO DE EGRESADOS</H2></CENTER>
+
+<div class="caja-container">
+    <div class="caja">
+        <img src="Victoria.png" alt="Imagen 1">
+        <p contenteditable="true">“Eternamente agradecida y en deuda con el Colegio por la formación que recibí, las experiencias vividas y por la oportunidad de conocer lo que significa ser parte de la familia Calasancia, puedo decir con mucho orgullo que la falta de experiencia laboral no fue una limitante al momento de presentarme a una entrevista de trabajo.”</p>
+    </div>
+    <div class="caja">
+        <img src="Maike.png" alt="Imagen 2">
+        <p contenteditable="true">“Desde una situación personal, el apoyo de interconexión brindado por el colegio en la invitación a formar parte de los Modelos Internacionales de Naciones Unidas de Colombia y Costa Rica ha sido una de las vivencias más enriquecedoras y que más se han destacado en mi hoja de vida.”</p>
+    </div>
+    <div class="caja">
+        <img src="ANGEL.png" alt="Imagen 3">
+        <p contenteditable="true">“Mis años como estudiante del Calasanz me dejaron muchas cosas que ahora percibo. Por supuesto, una base sólida en muchas áreas del saber, pero más allá de eso, unos valores que vienen de una enseñanza en un ambiente sano y de profesores que se esforzaban por empatizar con nosotros a la hora de educarnos.”</p>
+    </div>
+</div>
+
+
+
+
+<CENTER><H2>Tambien podemos ser divertidos</H2></CENTER>
+
+<DIV class="NJ"><img src="niños jugando.jpeg" width="670" height="400" alt="LE"></DIV>
+
+
+
+<div class="servicios">   <CENTER><H2>Servicios</H2></CENTER> </div>
+
+
+
+
+
+<div class="caja-container2">
+    <div class="caja">
+        <img src="Enfermera.png" alt="Imagen 1">
+        <p contenteditable="true">Enfermeria</p>
+    </div>
+    <div class="caja">
+        <img src="Parroquia.png" alt="Imagen 2">
+        <p contenteditable="true">Parroquia</p>
+    </div>
+    <div class="caja">
+        <img src="Comunidad.png" alt="Imagen 3">
+        <p contenteditable="true">Comunidad educativa</p>
+    </div>
+
+    <div class="caja">
+        <img src="Clubes.png" alt="Imagen 3">
+        <p contenteditable="true">Clubes deportivos</p>
+    </div>
+
+</div>
+
+
+<div class="floating-icon">
+    <img src="CONTACTOS.png" alt="Ícono">
+</div>
+
+
+<FOOter>COPYRIGHT@ POLITECNICO CALASANZ LA ROMANA, REP.DOM. 2024 TODOS LOS DERECHOS RESERVADOS</FOOter>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<script>
+    let navigation = document.querySelector('.navigation');
+    let toggle = document.querySelector('.toggle');
+    toggle.onclick = function(){
+        navigation.classList.toggle('active')
+    }
+
+
+
+
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel img');
+    const totalImages = images.length;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.remove('active');
+            if (i === index) img.classList.add('active');
+        });
+    }
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % totalImages; // Cicla a la siguiente imagen
+        showImage(currentIndex);
+    }
+
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Cicla a la imagen anterior
+        showImage(currentIndex);
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', showNextImage);
+    document.getElementById('prevBtn').addEventListener('click', showPrevImage);
+
+    // Cambiar de imagen cada 3 segundos
+    setInterval(showNextImage, 3000);
+
+
+    function handleFirstSelect() {
+    const select = document.getElementById('firstSelect');
+    const alerta = document.querySelector('.alerta');
+
+    if (select.value === 'matematicas') {
+        alerta.style.display = 'block'; // Mostrar alerta
+        showIcons(); // Mostrar íconos
+
+
+    } else {
+        alerta.style.display = 'none'; // Ocultar alerta
+        hideIcons(); // Ocultar íconos
+    }
+
+
+
+    function handleFirstSelect() {
+    const select = document.getElementById('firstSelect');
+    const tecnicoDiv = document.querySelector('.icon-strip');
+    const alerta = document.querySelector('.alerta');
+    
+    if (select.value === 'matematica') {
+        tecnicoDiv.style.display ='block'; // Muestra las cajas
+        alerta.style.display = 'none'; // Oculta la alerta
+    } else {
+        tecnicoDiv.style.display = 'none'; // Oculta las cajas
+        alerta.style.display = 'block'; // Muestra la alerta
+    }
+}
+
+
+    function handleFirstSelect() {
+    const select = document.getElementById('firstSelect');
+    const alertDiv = document.querySelector('.alerta');
+    const iconc = document.getElementById('tecnico');
+
+    if (select.value === 'Politécnico') {
+        alertDiv.style.display = 'block'; // Mostrar alerta
+       
+        iconc.style.display = 'none'; // Mostrar cajas
+        
+        
+    } else {
+        alertDiv.style.display = 'none'; // Ocultar alerta
+        iconc.style.display = 'flex'; // Ocultar cajas
+    }
+}
+
+
+
+
+  
+
+
+
+    
+
+}
+
+
+
+    
+
+
+
+function handleFirstSelect() {
+    const select = document.getElementById("firstSelect");
+    const tecnicoDiv = document.querySelector(".tecnico");
+    const alerta = document.querySelector(".alerta");
+    
+    if (select.value === "politecnico") {
+        tecnicoDiv.style.display = "FLEX"; // Muestra las cajas
+        alerta.style.display = "none"; // Oculta la alerta
+    } else {
+        tecnicoDiv.style.display = "none"; // Oculta las cajas
+        alerta.style.display = "block"; // Muestra la alerta
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
